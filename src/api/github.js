@@ -8,11 +8,11 @@ export async function getFollowers(username) {
       return res.data;
     } else {
       const allFollowers = [];
-      allFollowers.concat(...res.data);
+      allFollowers.push(...res.data);
       let pageNumber = 2;
-      while (res !== [] && pageNumber < 4) {
+      while (res !== [] && pageNumber < 10) {
         const res = await githubClient.get(`/users/${username}/followers?page=${pageNumber}`);
-        allFollowers.concat(...res.data);
+        allFollowers.push(...res.data);
         pageNumber++;
       }
       return allFollowers;
