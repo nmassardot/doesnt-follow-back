@@ -13,13 +13,15 @@ function UserCard({ user }) {
       )}
     >
       <a
-      className={clsx(
-        "col-start-1 col-span-2",
-        "py-2",
-        "hover:font-bold",
-        "hover:underline"
-      )}
-      href={`https://github.com/${user.login}`}
+        className={clsx(
+          "col-start-1 col-span-2",
+          "py-2",
+          "hover:font-bold",
+          "hover:underline"
+        )}
+        href={user.html_url}
+        target="_blank"
+        rel="noreferrer"
       >
         {user.login}
       </a>
