@@ -21,3 +21,26 @@ export async function getFollowers(username) {
     return undefined;
   }
 }
+
+export async function getFollowing(username) {
+  try {
+    let res = await githubClient.get(`/users/${username}/following?per_page=100`);
+    if (res && res.data.length < 100) {
+      return res.data;
+    } else {
+      const allFollowing = [];
+      allFollowing.push(...res.data);
+      let pageNumber = 2;
+      while (res.data.length === 100) {
+        res = await githubClient.get(`/users/${username}/following?page=${pageNumber}&per_page=100`);
+        console.log(res);
+        console.log(res.data.length === 30);
+        allFollowing.push(...res.data);
+        pageNumber++;
+      }
+      return allFollowing;
+    }
+  } catch (e) {
+    return undefined;
+  }
+}
