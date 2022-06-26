@@ -4,6 +4,7 @@ import clsx from "clsx";
 
 import { getFollowers, getFollowing, getUsersStarredRepo } from "../api/github";
 import UsersDisplay from "./specifics/UsersDisplay";
+import Footer from "./specifics/Footer";
 
 function orderByUsername(follower1, follower2) {
   const follower1UsernameLowerCase = follower1.login.toLowerCase();
@@ -57,42 +58,45 @@ function SectionFollowers({ username }) {
   }, [followers, following, username]);
 
   return (
-    <div
-      className={clsx(
-        "h-full w-full",
-        "flex",
-        !starredRepo && "flex-col",
-        "items-center justify-center",
-        "py-10"
-      )}
-    >
-      {starredRepo && (
-        <>
-          <UsersDisplay users={followers} className={clsx("mr-10")} />
-          <UsersDisplay users={following} className={clsx("mr-10")} />
-          <UsersDisplay users={doesntFollowBack} />
-        </>
-      )}
-      {!starredRepo && (
-        <>
-          <h1
-            className={clsx("text-3xl font-bold", "mb-5")}
-          >
-            Remember to star the repository to see whom doesn't follow you back!
-          </h1>
-          <p className={clsx("text-xl")}>You can give it a star in {" "}
-            <a
-              className={clsx("text-blue-700 hover:text-blue-500", "underline cursor-pointer")}
-              href="https://github.com/nmassardot/doesnt-follow-back"
-              target="_blank"
-              rel="noreferrer"
+    <>
+      <div
+        className={clsx(
+          "h-full w-full",
+          "flex",
+          !starredRepo && "flex-col",
+          "items-center justify-center",
+          "py-10"
+        )}
+      >
+        {starredRepo && (
+          <>
+            <UsersDisplay users={followers} className={clsx("mr-10")} />
+            <UsersDisplay users={following} className={clsx("mr-10")} />
+            <UsersDisplay users={doesntFollowBack} />
+          </>
+        )}
+        {!starredRepo && (
+          <>
+            <h1
+              className={clsx("text-3xl font-bold", "mb-5")}
             >
-              here
-            </a>
-          </p>
-        </>
-      )}
-    </div>
+              Remember to star the repository to see whom doesn't follow you back!
+            </h1>
+            <p className={clsx("text-xl")}>You can give it a star in {" "}
+              <a
+                className={clsx("text-blue-700 hover:text-blue-500", "underline cursor-pointer")}
+                href="https://github.com/nmassardot/doesnt-follow-back"
+                target="_blank"
+                rel="noreferrer"
+              >
+                here
+              </a>
+            </p>
+          </>
+        )}
+      </div>
+      <Footer />
+    </>
   );
 }
 
