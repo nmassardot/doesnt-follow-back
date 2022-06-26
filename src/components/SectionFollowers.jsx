@@ -1,16 +1,24 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 import { getFollowers } from "../api/github";
 
+import FollowersDisplay from "./specifics/FollowersDisplay";
+
 function SectionFollowers({ username }) {
+  const [followers, setFollowers] = useState([]);
+
   useEffect(() => {
     const fetchFollowers = async () => {
       const data = await getFollowers(username);
-      console.log(data);
+      setFollowers(data);
     };
     fetchFollowers();
   }, [username]);
-  return (<h1>Followers section</h1>);
+  return (
+    <div>
+      <FollowersDisplay followers={followers} />
+    </div>
+  );
 }
 
 export default SectionFollowers;
