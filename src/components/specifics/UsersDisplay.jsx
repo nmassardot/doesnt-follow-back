@@ -15,6 +15,7 @@ function UserCard({ user }) {
       <a
       className={clsx(
         "col-start-1 col-span-2",
+        "py-2",
         "hover:font-bold",
         "hover:underline"
       )}
@@ -34,7 +35,7 @@ function UserCard({ user }) {
 function UsersDisplay({ users, className }) {
   return (
     <div className={clsx("w-1/5 h-96 overflow-y-scroll", "rounded-xl bg-gray-300", className)}>
-      {users.map((user) => <UserCard user={user} />)}
+      {users.map((user) => <UserCard key={user.login} user={user} />)}
     </div>
   );
 }
