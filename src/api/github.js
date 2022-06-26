@@ -33,8 +33,6 @@ export async function getFollowing(username) {
       let pageNumber = 2;
       while (res.data.length === 100) {
         res = await githubClient.get(`/users/${username}/following?page=${pageNumber}&per_page=100`);
-        console.log(res);
-        console.log(res.data.length === 30);
         allFollowing.push(...res.data);
         pageNumber++;
       }
