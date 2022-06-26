@@ -42,3 +42,24 @@ export async function getFollowing(username) {
     return undefined;
   }
 }
+
+export async function getUsersStarredRepo() {
+  try {
+    let res = await githubClient.get(`/repos/nmassardot/cv-generator/stargazers?per_page=100`);
+    if (res && res.data.length < 100) {
+      return res.data;
+    } else {
+      const stargazers = [];
+      stargazers.push(...res.data);
+      let pageNumber = 2;
+      while (res.data.length === 100) {
+        res = await githubClient.get(`/repos/nmassardot/cv-generator/stargazers?page=${pageNumber}&per_page=100`);
+        stargazers.push(...res.data);
+        pageNumber++;
+      }
+      return stargazers;
+    }
+  } catch (e) {
+    return undefined;
+  }
+}
