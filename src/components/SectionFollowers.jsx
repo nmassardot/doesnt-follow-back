@@ -5,6 +5,12 @@ import clsx from "clsx";
 import { getFollowers, getFollowing } from "../api/github";
 import UsersDisplay from "./specifics/UsersDisplay";
 
+function orderByUsername(follower1, follower2) {
+  const follower1UsernameLowerCase = follower1.login.toLowerCase();
+  const follower2UsernameLowerCase = follower2.login.toLowerCase();
+  return follower1UsernameLowerCase > follower2UsernameLowerCase ? 1 : -1
+}
+
 function SectionFollowers({ username }) {
   const [followers, setFollowers] = useState([]);
   const [following, setFollowing] = useState([]);
@@ -13,6 +19,7 @@ function SectionFollowers({ username }) {
   useEffect(() => {
     const fetchFollowers = async () => {
       const data = await getFollowers(username);
+      data.sort(orderByUsername);
       setFollowers(data);
     };
     fetchFollowers();
@@ -21,6 +28,7 @@ function SectionFollowers({ username }) {
   useEffect(() => {
     const fetchFollowedBy = async () => {
       const data = await getFollowing(username);
+      data.sort(orderByUsername);
       setFollowing(data);
     }
     fetchFollowedBy();
@@ -31,12 +39,12 @@ function SectionFollowers({ username }) {
     const doesntFollow = [];
 
     following.forEach((f) => {
-      console.log(!followersUsernames.includes(f.login));
       if (!(followersUsernames.includes(f.login)) && !(doesntFollow.includes(f))) {
         doesntFollow.push(f);
       }
     });
 
+    doesntFollow.sort(orderByUsername);
     setDoesntFollowBack(doesntFollow);
   }, [followers, following]);
   return (
