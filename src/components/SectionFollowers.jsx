@@ -99,7 +99,7 @@ function SectionFollowers({ username }) {
               )}
             >
               <h1 className={clsx("text-lg font-bold", "mb-1 md:mb-3")}>Followers
-                <span className={clsx("ml-1 w-1/3 px-2 pb-1 text-sm text-white bg-green-500 rounded-full")}>
+                <span className={clsx("ml-2 px-2 py-1 text-sm text-white bg-green-500 square-full")}>
                   {followers.length}
                 </span>
               </h1>
@@ -114,7 +114,7 @@ function SectionFollowers({ username }) {
               )}
             >
               <h1 className={clsx("text-lg font-bold", "mb-1 md:mb-3")}>Following
-                <span className={clsx("ml-1 w-1/3 px-2 pb-1 text-sm text-white bg-blue-500 rounded-full")}>
+                <span className={clsx("ml-2 px-2 py-1 text-sm text-white bg-blue-500 square-full")}>
                   {following.length}
                 </span>
               </h1>
@@ -129,7 +129,7 @@ function SectionFollowers({ username }) {
               )}
             >
               <h1 className={clsx("text-lg font-bold", "mb-1 md:mb-3")}>You don't follow back
-                <span className={clsx("ml-1 w-1/3 px-2 pb-1 text-sm text-white bg-purple-500 rounded-full")}>
+                <span className={clsx("ml-2 px-2 py-1 text-sm text-white bg-purple-500 square-full")}>
                   {youDontFollowBack.length}
                 </span>
               </h1>
@@ -143,7 +143,7 @@ function SectionFollowers({ username }) {
               )}
             >
               <h1 className={clsx("text-lg font-bold", "mb-1 md:mb-3")}>Doesn't follow back
-                <span className={clsx("ml-1 w-1/3 px-2 pb-1 text-sm text-white bg-red-500 rounded-full")}>
+                <span className={clsx("ml-2 px-2 py-1 text-sm text-white bg-red-500 square-full")}>
                   {doesntFollowBack.length}
                 </span>
               </h1>
