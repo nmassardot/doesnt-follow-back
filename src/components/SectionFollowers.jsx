@@ -17,6 +17,7 @@ function SectionFollowers({ username }) {
   const [followers, setFollowers] = useState([]);
   const [following, setFollowing] = useState([]);
   const [doesntFollowBack, setDoesntFollowBack] = useState([]);
+  const [youDontFollowBack, setYouDontFollowBack] = useState([]);
   const [starredRepo, setStarredRepo] = useState(false);
 
   useEffect(() => {
@@ -40,11 +41,19 @@ function SectionFollowers({ username }) {
   useEffect(() => {
     setIsLoading(true);
     const followersUsernames = followers.map((f) => f.login);
+    const followingUsernames = following.map((f) => f.login);
     const doesntFollow = [];
+    const youDontFollow = [];
 
     following.forEach((f) => {
       if (!(followersUsernames.includes(f.login)) && !(doesntFollow.includes(f))) {
         doesntFollow.push(f);
+      }
+    });
+
+    followers.forEach((f) => {
+      if (!(followingUsernames.includes(f.login)) && !(youDontFollow.includes(f))) {
+        youDontFollow.push(f);
       }
     });
 
@@ -55,7 +64,9 @@ function SectionFollowers({ username }) {
     }
 
     doesntFollow.sort(orderByUsername);
+    youDontFollow.sort(orderByUsername);
     setDoesntFollowBack(doesntFollow);
+    setYouDontFollowBack(youDontFollow);
     checkStarred();
     setIsLoading(false);
   }, [followers, following, username]);
@@ -105,11 +116,22 @@ function SectionFollowers({ username }) {
               className={clsx(
                 "flex flex-col items-center justify-center",
                 "w-4/5 md:w-1/5",
-                "mb-3 md:mb-0",
+                "mb-5 md:mb-0",
+                "md:mr-10",
               )}
             >
               <h1 className={clsx("text-lg font-bold", "mb-1 md:mb-3")}>Doesn't follow back</h1>
               <UsersDisplay users={doesntFollowBack} />
+            </div>
+            <div
+              className={clsx(
+                "flex flex-col items-center justify-center",
+                "w-4/5 md:w-1/5",
+                "mb-5 md:mb-0",
+              )}
+            >
+              <h1 className={clsx("text-lg font-bold", "mb-1 md:mb-3")}>You don't follow back</h1>
+              <UsersDisplay users={youDontFollowBack} />
             </div>
           </>
         )}
