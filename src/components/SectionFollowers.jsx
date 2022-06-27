@@ -13,6 +13,7 @@ function orderByUsername(follower1, follower2) {
 }
 
 function SectionFollowers({ username }) {
+  const [isLoading, setIsLoading] = useState(false);
   const [followers, setFollowers] = useState([]);
   const [following, setFollowing] = useState([]);
   const [doesntFollowBack, setDoesntFollowBack] = useState([]);
@@ -37,6 +38,7 @@ function SectionFollowers({ username }) {
   }, [username]);
 
   useEffect(() => {
+    setIsLoading(true);
     const followersUsernames = followers.map((f) => f.login);
     const doesntFollow = [];
 
@@ -55,6 +57,7 @@ function SectionFollowers({ username }) {
     doesntFollow.sort(orderByUsername);
     setDoesntFollowBack(doesntFollow);
     checkStarred();
+    setIsLoading(false);
   }, [followers, following, username]);
 
   return (
@@ -69,7 +72,11 @@ function SectionFollowers({ username }) {
           "py-10"
         )}
       >
-        {starredRepo && (
+        {isLoading && (
+          <h1 className={clsx("text-3xl font-bold")}>Loading...</h1>
+          )
+        }
+        {starredRepo && !isLoading && (
           <>
             <div
               className={clsx(
@@ -106,7 +113,7 @@ function SectionFollowers({ username }) {
             </div>
           </>
         )}
-        {!starredRepo && (
+        {!starredRepo && !isLoading && (
           <>
             <h1
               className={clsx("text-3xl font-bold", "mb-2", "text-center")}
