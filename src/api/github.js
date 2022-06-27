@@ -45,7 +45,7 @@ export async function getFollowing(username) {
 
 export async function getUsersStarredRepo() {
   try {
-    let res = await githubClient.get(`/repos/nmassardot/cv-generator/stargazers?per_page=100`);
+    let res = await githubClient.get(`/repos/nmassardot/doesnt-follow-back/stargazers?per_page=100`);
     if (res && res.data.length < 100) {
       return res.data;
     } else {
