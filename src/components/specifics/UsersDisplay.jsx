@@ -36,7 +36,14 @@ function UserCard({ user }) {
 
 function UsersDisplay({ users, className }) {
   return (
-    <div className={clsx("w-1/5 h-96 overflow-y-scroll", "rounded-xl bg-gray-300", className)}>
+    <div
+      className={clsx(
+        "w-full overflow-y-scroll",
+        "h-36 md:h-96",
+        "rounded-xl bg-gray-300",
+        className,
+      )}
+    >
       {users.map((user) => <UserCard key={user.login} user={user} />)}
     </div>
   );
