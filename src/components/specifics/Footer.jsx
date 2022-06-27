@@ -14,12 +14,12 @@ function Footer() {
       )}
     >
       <p>Made with ❤️  by {" "}
-      <a
-        href="https://github.com/nmassardot"
-        className={clsx("font-bold hover:underline")}
-      >
-        nmassardot
-      </a>
+        <a
+          href="https://github.com/nmassardot"
+          className={clsx("font-bold hover:underline")}
+        >
+          nmassardot
+        </a>
       </p>
     </div>
   );
