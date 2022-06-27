@@ -76,7 +76,8 @@ function SectionFollowers({ username }) {
                 "flex flex-col",
                 "items-center justify-center",
                 "w-4/5 md:w-1/5",
-                "mb-5 md:mr-10",
+                "mb-5 md:mb-0",
+                "md:mr-10",
               )}
             >
               <h1 className={clsx("text-lg font-bold", "mb-1 md:mb-3")}>Followers</h1>
@@ -86,7 +87,8 @@ function SectionFollowers({ username }) {
               className={clsx(
                 "flex flex-col items-center justify-center",
                 "w-4/5 md:w-1/5",
-                "mb-5 md:mr-10",
+                "mb-5 md:mb-0",
+                "md:mr-10",
               )}
             >
               <h1 className={clsx("text-lg font-bold", "mb-1 md:mb-3")}>Following</h1>
@@ -99,7 +101,7 @@ function SectionFollowers({ username }) {
                 "mb-3 md:mb-0",
               )}
             >
-              <h1 className={clsx("text-lg font-bold", "mb-3")}>Doesn't follow back</h1>
+              <h1 className={clsx("text-lg font-bold", "mb-1 md:mb-3")}>Doesn't follow back</h1>
               <UsersDisplay users={doesntFollowBack} />
             </div>
           </>
