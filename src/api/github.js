@@ -24,20 +24,8 @@ export async function getFollowers(username) {
 
 export async function getFollowing(username) {
   try {
-    let res = await githubClient.get(`/users/${username}/following?per_page=100`);
-    if (res && res.data.length < 100) {
-      return res.data;
-    } else {
-      const allFollowing = [];
-      allFollowing.push(...res.data);
-      let pageNumber = 2;
-      while (res.data.length === 100) {
-        res = await githubClient.get(`/users/${username}/following?page=${pageNumber}&per_page=100`);
-        allFollowing.push(...res.data);
-        pageNumber++;
-      }
-      return allFollowing;
-    }
+    const res = await githubClient.post("/following", { username })
+    return res.data.following;
   } catch (e) {
     return undefined;
   }
