@@ -17,6 +17,8 @@ function Footer() {
         <a
           href="https://github.com/nmassardot"
           className={clsx("font-bold hover:underline")}
+          target="_blank"
+          rel="noreferrer"
         >
           nmassardot
         </a>
