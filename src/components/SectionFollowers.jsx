@@ -64,15 +64,44 @@ function SectionFollowers({ username }) {
           "h-full w-full",
           "flex",
           !starredRepo && "flex-col",
+          starredRepo && "flex-col-reverse md:flex-row",
           "items-center justify-center",
           "py-10"
         )}
       >
         {starredRepo && (
           <>
-            <UsersDisplay users={followers} className={clsx("mr-10")} />
-            <UsersDisplay users={following} className={clsx("mr-10")} />
-            <UsersDisplay users={doesntFollowBack} />
+            <div
+              className={clsx(
+                "flex flex-col",
+                "items-center justify-center",
+                "w-4/5 md:w-1/5",
+                "mb-5 md:mr-10",
+              )}
+            >
+              <h1 className={clsx("text-lg font-bold", "mb-1 md:mb-3")}>Followers</h1>
+              <UsersDisplay users={followers} />
+            </div>
+            <div
+              className={clsx(
+                "flex flex-col items-center justify-center",
+                "w-4/5 md:w-1/5",
+                "mb-5 md:mr-10",
+              )}
+            >
+              <h1 className={clsx("text-lg font-bold", "mb-1 md:mb-3")}>Following</h1>
+              <UsersDisplay users={following} />
+            </div>
+            <div
+              className={clsx(
+                "flex flex-col items-center justify-center",
+                "w-4/5 md:w-1/5",
+                "mb-3 md:mb-0",
+              )}
+            >
+              <h1 className={clsx("text-lg font-bold", "mb-3")}>Doesn't follow back</h1>
+              <UsersDisplay users={doesntFollowBack} />
+            </div>
           </>
         )}
         {!starredRepo && (
