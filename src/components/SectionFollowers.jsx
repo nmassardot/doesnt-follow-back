@@ -109,13 +109,30 @@ function SectionFollowers({ username }) {
         {!starredRepo && (
           <>
             <h1
-              className={clsx("text-3xl font-bold", "mb-5")}
+              className={clsx("text-3xl font-bold", "mb-2", "text-center")}
             >
               Remember to star the repository to see whom doesn't follow you back!
             </h1>
+            <p className={clsx("text-md", "mb-8")}>
+              If you think something's wrong, {" "}
+              <a
+                href="https://github.com/nmassardot/doesnt-follow-back/issues"
+                target="_blank"
+                rel="noreferrer"
+                className={clsx(
+                  "text-blue-700 hover:text-blue-500",
+                  "underline cursor-pointer",
+                )}
+              >
+                contact me
+              </a>
+            </p>
             <p className={clsx("text-xl")}>You can give it a star in {" "}
               <a
-                className={clsx("text-blue-700 hover:text-blue-500", "underline cursor-pointer")}
+                className={clsx(
+                  "text-blue-700 hover:text-blue-500",
+                  "underline cursor-pointer",
+                )}
                 href="https://github.com/nmassardot/doesnt-follow-back"
                 target="_blank"
                 rel="noreferrer"
