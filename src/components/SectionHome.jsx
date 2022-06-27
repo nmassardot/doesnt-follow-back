@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import clsx from "clsx";
 
 import Footer from "./specifics/Footer";
+import GithubLogo from "./logos/GithubLogo";
 
 function SectionHome() {
   const [githubUsername, setGithubUsername] = useState("");
@@ -19,7 +20,9 @@ function SectionHome() {
       "px-5 md:px-20",
     )}
     >
-      <p className={clsx("w-1/2")}>Pic</p>
+      <div className={clsx("w-1/2")}>
+        <GithubLogo className={clsx("w-1/2 md:w-4/6", "mt-2 md:mt-0","mx-auto")} />
+      </div>
       <div
         className={clsx(
           "w-full md:w-1/2",
