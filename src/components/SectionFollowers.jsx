@@ -100,7 +100,11 @@ function SectionFollowers({ username }) {
                 "md:mr-10",
               )}
             >
-              <h1 className={clsx("text-lg font-bold", "mb-1 md:mb-3")}>Followers</h1>
+              <h1 className={clsx("text-lg font-bold", "mb-1 md:mb-3")}>Followers
+                <span className={clsx("ml-2 px-2 py-1 text-sm text-white bg-green-500 square-full")}>
+                  {followers.length}
+                </span>
+              </h1>
               <UsersDisplay users={followers} />
             </div>
             <div
@@ -111,7 +115,11 @@ function SectionFollowers({ username }) {
                 "md:mr-10",
               )}
             >
-              <h1 className={clsx("text-lg font-bold", "mb-1 md:mb-3")}>Following</h1>
+              <h1 className={clsx("text-lg font-bold", "mb-1 md:mb-3")}>Following
+                <span className={clsx("ml-2 px-2 py-1 text-sm text-white bg-blue-500 square-full")}>
+                  {following.length}
+                </span>
+              </h1>
               <UsersDisplay users={following} />
             </div>
             <div
@@ -122,7 +130,11 @@ function SectionFollowers({ username }) {
                 "md:mr-10",
               )}
             >
-              <h1 className={clsx("text-lg font-bold", "mb-1 md:mb-3")}>You don't follow back</h1>
+              <h1 className={clsx("text-lg font-bold", "mb-1 md:mb-3")}>You don't follow back
+                <span className={clsx("ml-2 px-2 py-1 text-sm text-white bg-purple-500 square-full")}>
+                  {youDontFollowBack.length}
+                </span>
+              </h1>
               <UsersDisplay users={youDontFollowBack} />
             </div>
             <div
@@ -132,7 +144,11 @@ function SectionFollowers({ username }) {
                 "mb-5 md:mb-0",
               )}
             >
-              <h1 className={clsx("text-lg font-bold", "mb-1 md:mb-3")}>Doesn't follow back</h1>
+              <h1 className={clsx("text-lg font-bold", "mb-1 md:mb-3")}>Doesn't follow back
+                <span className={clsx("ml-2 px-2 py-1 text-sm text-white bg-red-500 square-full")}>
+                  {doesntFollowBack.length}
+                </span>
+              </h1>
               <UsersDisplay users={doesntFollowBack} />
             </div>
           </>
