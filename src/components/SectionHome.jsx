@@ -13,18 +13,20 @@ function SectionHome() {
     <div
     className={clsx(
       "w-full h-full",
-      "flex items-center justify-center",
-      "py-20 px-20",
+      "flex flex-col-reverse md:flex-row",
+      "items-center justify-center",
+      "py-8 md:py-20",
+      "px-5 md:px-20",
     )}
     >
       <p className={clsx("w-1/2")}>Pic</p>
       <div
         className={clsx(
-          "w-1/2",
+          "w-full md:w-1/2",
           "flex flex-col",
           "justify-center items-center",
           "text-xl text-justify",
-          "py-24",
+          "md:py-24",
         )}
       >
         <h1
@@ -40,13 +42,13 @@ function SectionHome() {
             want to follow you back on Github. Here you have de oportunity to
             know whom they are, and if it's still woth it to follow them.
           </p>
-          <div className={clsx("flex items-center justify-center", "w-full", "px-10", "mb-12")}>
+          <div className={clsx("flex items-center justify-center", "w-full", "md:px-10", "mb-12")}>
             <input
               type="text"
               placeholder="Enter your Github username"
               onChange={(e) => setGithubUsername(e.target.value)}
               className={clsx(
-                "w-1/2",
+                "w-5/6 md:w-1/2",
                 "rounded-lg border border-black",
                 "py-2 px-2",
                 "mr-5",
