@@ -120,8 +120,8 @@ function SectionFollowers({ username }) {
                 "md:mr-10",
               )}
             >
-              <h1 className={clsx("text-lg font-bold", "mb-1 md:mb-3")}>Doesn't follow back</h1>
-              <UsersDisplay users={doesntFollowBack} />
+              <h1 className={clsx("text-lg font-bold", "mb-1 md:mb-3")}>You don't follow back</h1>
+              <UsersDisplay users={youDontFollowBack} />
             </div>
             <div
               className={clsx(
@@ -130,8 +130,8 @@ function SectionFollowers({ username }) {
                 "mb-5 md:mb-0",
               )}
             >
-              <h1 className={clsx("text-lg font-bold", "mb-1 md:mb-3")}>You don't follow back</h1>
-              <UsersDisplay users={youDontFollowBack} />
+              <h1 className={clsx("text-lg font-bold", "mb-1 md:mb-3")}>Doesn't follow back</h1>
+              <UsersDisplay users={doesntFollowBack} />
             </div>
           </>
         )}
