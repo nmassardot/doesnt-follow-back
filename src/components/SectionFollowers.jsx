@@ -58,9 +58,11 @@ function SectionFollowers({ username }) {
     });
 
     const checkStarred = async () => {
-      const res = await getUsersStarredRepo();
-      const resUsernames = res.map((f) => f.login);
-      setStarredRepo(resUsernames.includes(username));
+      const stargazers = await getUsersStarredRepo();
+      if (stargazers) {
+        const resUsernames = stargazers.map((f) => f.login);
+        setStarredRepo(resUsernames.includes(username));
+      }
     }
 
     doesntFollow.sort(orderByUsername);
