@@ -12,6 +12,7 @@ Feel free to contribute opening a PR.
 
 # Missing
 
+- Improve the way to get the next page of the followers/following in the API call
 - Install linter
 - Add CI
 
