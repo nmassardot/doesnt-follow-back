@@ -10,3 +10,8 @@ Just star this repository and go to the website.
 
 Feel free to contribute opening a PR.
 
+# Missing
+
+- Install linter
+- Add CI
+
