@@ -1,8 +1,8 @@
-import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import HomeView from "./views/HomeView";
-import FollowersView from "./views/FollowersView";
+import HomeView from './views/HomeView';
+import FollowersView from './views/FollowersView';
 
 function App() {
   return (

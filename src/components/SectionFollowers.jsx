@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
-import clsx from "clsx";
+import clsx from 'clsx';
 
-import { getFollowers, getFollowing, getUsersStarredRepo } from "../api/github";
-import UsersDisplay from "./specifics/UsersDisplay";
-import Footer from "./specifics/Footer";
+import { getFollowers, getFollowing, getUsersStarredRepo } from '../api/github';
+import UsersDisplay from './specifics/UsersDisplay';
+import Footer from './specifics/Footer';
 
 function orderByUsername(follower1, follower2) {
   const follower1UsernameLowerCase = follower1.login.toLowerCase();
   const follower2UsernameLowerCase = follower2.login.toLowerCase();
-  return follower1UsernameLowerCase > follower2UsernameLowerCase ? 1 : -1
+  return follower1UsernameLowerCase > follower2UsernameLowerCase ? 1 : -1;
 }
 
 function SectionFollowers({ username }) {
@@ -34,7 +34,7 @@ function SectionFollowers({ username }) {
       const data = await getFollowing(username);
       data.sort(orderByUsername);
       setFollowing(data);
-    }
+    };
     fetchFollowedBy();
   }, [username]);
 
@@ -63,7 +63,7 @@ function SectionFollowers({ username }) {
         const resUsernames = stargazers.map((f) => f.login);
         setStarredRepo(resUsernames.includes(username));
       }
-    }
+    };
 
     doesntFollow.sort(orderByUsername);
     youDontFollow.sort(orderByUsername);
@@ -77,31 +77,31 @@ function SectionFollowers({ username }) {
     <>
       <div
         className={clsx(
-          "h-full w-full",
-          "flex",
-          !starredRepo && "flex-col",
-          starredRepo && "flex-col-reverse md:flex-row",
-          "items-center justify-center",
-          "py-10"
+          'h-full w-full',
+          'flex',
+          !starredRepo && 'flex-col',
+          starredRepo && 'flex-col-reverse md:flex-row',
+          'items-center justify-center',
+          'py-10',
         )}
       >
         {isLoading && (
-          <h1 className={clsx("text-3xl font-bold")}>Loading...</h1>
-          )
-        }
+          <h1 className={clsx('text-3xl font-bold')}>Loading...</h1>
+        )}
         {starredRepo && !isLoading && (
           <>
             <div
               className={clsx(
-                "flex flex-col",
-                "items-center justify-center",
-                "w-4/5 md:w-1/5",
-                "mb-5 md:mb-0",
-                "md:mr-10",
+                'flex flex-col',
+                'items-center justify-center',
+                'w-4/5 md:w-1/5',
+                'mb-5 md:mb-0',
+                'md:mr-10',
               )}
             >
-              <h1 className={clsx("text-lg font-bold", "mb-1 md:mb-3")}>Followers
-                <span className={clsx("ml-2 px-2 py-1 text-sm text-white bg-green-500 square-full")}>
+              <h1 className={clsx('text-lg font-bold', 'mb-1 md:mb-3')}>
+                Followers
+                <span className={clsx('ml-2 px-2 py-1 text-sm text-white bg-green-500 square-full')}>
                   {followers.length}
                 </span>
               </h1>
@@ -109,14 +109,15 @@ function SectionFollowers({ username }) {
             </div>
             <div
               className={clsx(
-                "flex flex-col items-center justify-center",
-                "w-4/5 md:w-1/5",
-                "mb-5 md:mb-0",
-                "md:mr-10",
+                'flex flex-col items-center justify-center',
+                'w-4/5 md:w-1/5',
+                'mb-5 md:mb-0',
+                'md:mr-10',
               )}
             >
-              <h1 className={clsx("text-lg font-bold", "mb-1 md:mb-3")}>Following
-                <span className={clsx("ml-2 px-2 py-1 text-sm text-white bg-blue-500 square-full")}>
+              <h1 className={clsx('text-lg font-bold', 'mb-1 md:mb-3')}>
+                Following
+                <span className={clsx('ml-2 px-2 py-1 text-sm text-white bg-blue-500 square-full')}>
                   {following.length}
                 </span>
               </h1>
@@ -124,14 +125,15 @@ function SectionFollowers({ username }) {
             </div>
             <div
               className={clsx(
-                "flex flex-col items-center justify-center",
-                "w-4/5 md:w-1/5",
-                "mb-5 md:mb-0",
-                "md:mr-10",
+                'flex flex-col items-center justify-center',
+                'w-4/5 md:w-1/5',
+                'mb-5 md:mb-0',
+                'md:mr-10',
               )}
             >
-              <h1 className={clsx("text-lg font-bold", "mb-1 md:mb-3")}>You don't follow back
-                <span className={clsx("ml-2 px-2 py-1 text-sm text-white bg-purple-500 square-full")}>
+              <h1 className={clsx('text-lg font-bold', 'mb-1 md:mb-3')}>
+                You don't follow back
+                <span className={clsx('ml-2 px-2 py-1 text-sm text-white bg-purple-500 square-full')}>
                   {youDontFollowBack.length}
                 </span>
               </h1>
@@ -139,13 +141,14 @@ function SectionFollowers({ username }) {
             </div>
             <div
               className={clsx(
-                "flex flex-col items-center justify-center",
-                "w-4/5 md:w-1/5",
-                "mb-5 md:mb-0",
+                'flex flex-col items-center justify-center',
+                'w-4/5 md:w-1/5',
+                'mb-5 md:mb-0',
               )}
             >
-              <h1 className={clsx("text-lg font-bold", "mb-1 md:mb-3")}>Doesn't follow back
-                <span className={clsx("ml-2 px-2 py-1 text-sm text-white bg-red-500 square-full")}>
+              <h1 className={clsx('text-lg font-bold', 'mb-1 md:mb-3')}>
+                Doesn't follow back
+                <span className={clsx('ml-2 px-2 py-1 text-sm text-white bg-red-500 square-full')}>
                   {doesntFollowBack.length}
                 </span>
               </h1>
@@ -156,29 +159,33 @@ function SectionFollowers({ username }) {
         {!starredRepo && !isLoading && (
           <>
             <h1
-              className={clsx("text-3xl font-bold", "mb-2", "text-center")}
+              className={clsx('text-3xl font-bold', 'mb-2', 'text-center')}
             >
               Remember to star the repository to see whom doesn't follow you back!
             </h1>
-            <p className={clsx("text-md", "mb-8")}>
-              If you think something's wrong, {" "}
+            <p className={clsx('text-md', 'mb-8')}>
+              If you think something's wrong,
+              {' '}
+              {' '}
               <a
                 href="https://github.com/nmassardot/doesnt-follow-back/issues"
                 target="_blank"
                 rel="noreferrer"
                 className={clsx(
-                  "text-blue-700 hover:text-blue-500",
-                  "underline cursor-pointer",
+                  'text-blue-700 hover:text-blue-500',
+                  'underline cursor-pointer',
                 )}
               >
                 contact me
               </a>
             </p>
-            <p className={clsx("text-xl")}>You can give it a star in {" "}
+            <p className={clsx('text-xl')}>
+              You can give it a star in
+              {' '}
               <a
                 className={clsx(
-                  "text-blue-700 hover:text-blue-500",
-                  "underline cursor-pointer",
+                  'text-blue-700 hover:text-blue-500',
+                  'underline cursor-pointer',
                 )}
                 href="https://github.com/nmassardot/doesnt-follow-back"
                 target="_blank"
