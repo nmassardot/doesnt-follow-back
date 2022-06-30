@@ -58,6 +58,7 @@ function SectionHome() {
             )}
           />
           <button
+            type="button"
             onClick={() => navigate(githubUsername)}
             className={clsx(
               'bg-blue-500 hover:bg-blue-400',
