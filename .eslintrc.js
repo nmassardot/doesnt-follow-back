@@ -17,5 +17,9 @@ module.exports = {
   plugins: [
     'react',
   ],
-  rules: {},
+  rules: {
+    "react/prop-types": "off",
+    "react/no-unescaped-entities": "off",
+    "no-await-in-loop": "off",
+  },
 };
