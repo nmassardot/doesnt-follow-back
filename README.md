@@ -8,11 +8,11 @@ Just star this repository and go to the website.
 
 ## Linter
 
-This proyect uses the airbnb eslint style guide. For runing it, you can use the following command:
+This proyect uses the airbnb eslint style guide. For running it, you can use the following command:
 
 ```bash
-yarn lint # To check linting
-yarn lint --fix # To fix autocorrectable linting
+yarn lint # Check linting
+yarn lint --fix # Automatic fix linting
 ```
 
 ## Contribute
