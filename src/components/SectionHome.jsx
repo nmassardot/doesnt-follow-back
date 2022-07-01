@@ -10,6 +10,12 @@ function SectionHome() {
   const [githubUsername, setGithubUsername] = useState("");
   const navigate = useNavigate();
 
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      navigate(githubUsername)
+    }
+  }
+
   return (
     <div
     className={clsx(
@@ -50,6 +56,7 @@ function SectionHome() {
               type="text"
               placeholder="Enter your Github username"
               onChange={(e) => setGithubUsername(e.target.value)}
+              onKeyPress={handleKeyPress}
               className={clsx(
                 "w-5/6 md:w-1/2",
                 "rounded-lg border border-black",
