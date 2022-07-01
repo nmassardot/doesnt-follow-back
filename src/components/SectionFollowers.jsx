@@ -165,6 +165,7 @@ function SectionFollowers({ username }) {
             </h1>
             <p className={clsx("text-md", "mb-8")}>
               If you think something's wrong,
+              {" "}
               <a
                 href="https://github.com/nmassardot/doesnt-follow-back/issues"
                 target="_blank"
@@ -179,6 +180,7 @@ function SectionFollowers({ username }) {
             </p>
             <p className={clsx("text-xl")}>
               You can give it a star in
+              {" "}
               <a
                 className={clsx(
                   "text-blue-700 hover:text-blue-500",
