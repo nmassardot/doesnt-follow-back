@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-import SectionHome from '../components/SectionHome';
+import SectionHome from "../components/SectionHome";
 
 function HomeView() {
   return (<SectionHome />);

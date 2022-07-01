@@ -21,5 +21,6 @@ module.exports = {
     "react/prop-types": "off",
     "react/no-unescaped-entities": "off",
     "no-await-in-loop": "off",
+    "quotes": [2, "double"],
   },
 };
