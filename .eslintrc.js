@@ -22,5 +22,6 @@ module.exports = {
     "react/no-unescaped-entities": "off",
     "no-await-in-loop": "off",
     "quotes": [2, "double"],
+    "react/jsx-props-no-spreading": "off",
   },
 };
