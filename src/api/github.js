@@ -26,3 +26,12 @@ export async function getUsersStarredRepo() {
     return undefined;
   }
 }
+
+export async function awakeLambda() {
+  try {
+    const res = await githubClient.get("/");
+    return res;
+  } catch (e) {
+    return undefined;
+  }
+}
