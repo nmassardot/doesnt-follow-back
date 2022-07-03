@@ -13,7 +13,9 @@ function Footer() {
         "text-md",
       )}
     >
-      <p>Made with ❤️  by {" "}
+      <p>
+        Made with ❤️  by
+        {" "}
         <a
           href="https://github.com/nmassardot"
           className={clsx("font-bold hover:underline")}

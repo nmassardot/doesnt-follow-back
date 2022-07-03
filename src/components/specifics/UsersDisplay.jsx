@@ -17,7 +17,7 @@ function UserCard({ user }) {
           "col-start-1 col-span-2",
           "py-2",
           "hover:font-bold",
-          "hover:underline"
+          "hover:underline",
         )}
         href={user.html_url}
         target="_blank"
