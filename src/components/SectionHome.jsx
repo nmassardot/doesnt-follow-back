@@ -9,7 +9,7 @@ import GithubLogo from "./logos/GithubLogo";
 
 function SectionHome() {
   const [githubUsername, setGithubUsername] = useState("");
-  const [error, setError] = useState(true);
+  const [error, setError] = useState(false);
 
   const navigate = useNavigate();
 
@@ -22,7 +22,7 @@ function SectionHome() {
   useEffect(() => {
     const awakeApi = async () => {
       const res = await awakeLambda();
-      if (res && res.data.msg !== "App working correctly") {
+      if (!res || res.data.msg !== "App working correctly") {
         setError(true);
       }
     };
